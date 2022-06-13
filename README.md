@@ -1,23 +1,34 @@
-Automate Google Street View on the website ([DoorFront](https://doorfront.org/)) using [Selenium](https://www.selenium.dev/) and [ChromeDriver](https://chromedriver.chromium.org/).
+# doorfront-automation
+
+Automatically walk in Google Street View on the website ([DoorFront](https://doorfront.org/)) using **Selenium** and **ChromeDriver**.
+
+
+## How to run?
+1. Clone the code from: https://github.com/Qingquan-Li/doorfront-automation
+2. Install [python3](https://www.python.org/downloads/)
+3. Create a [virtual environment](https://docs.python.org/3/library/venv.html): `$ python3 -m venv .venv`
+4. Activate the virtual environment: `$ source .venv/bin/activate`
+5. Install dependencies: `$ pip install -r requirements.txt`
+6. Download [ChromeDriver](https://chromedriver.chromium.org) to this project root path
+7. Run: `$ python gsv_auto.py`
+
+
+---
 
 
 ## Selenium
 Documentation:
-- https://www.selenium.dev/documentation/
+- https://www.selenium.dev/documentation/webdriver/
 
-Python Documentations:
-- https://www.selenium.dev/selenium/docs/api/py/
+Python Documentations (Third Party):
 - https://selenium-python.readthedocs.io/index.html
-
-Download:
-- `$ pip install selenium`
 
 
 ## ChromeDriver
-> WebDriver is an open source tool for
-> automated testing of webapps across many browsers.
 
-Download:
+WebDriver is an open source tool for
+automated testing of webapps across many browsers.
+
 - https://chromedriver.chromium.org
 
 
