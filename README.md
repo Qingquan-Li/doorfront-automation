@@ -10,7 +10,7 @@ Python Documentations:
 - https://selenium-python.readthedocs.io/index.html
 
 Download:
-- `pip install selenium`
+- `$ pip install selenium`
 
 
 ## ChromeDriver
