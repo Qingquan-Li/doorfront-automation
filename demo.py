@@ -1,3 +1,7 @@
+"""
+Demo code from: https://chromedriver.chromium.org/getting-started
+"""
+
 # import time
 
 # from selenium import webdriver

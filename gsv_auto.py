@@ -12,8 +12,8 @@ from selenium.common.exceptions import TimeoutException
 from webdriver_manager.chrome import ChromeDriverManager
 
 
-class SeleniumInit:
-    """ Initialize Selenium with ChromeDriver """
+class ChromeOptionsInit:
+    """ Initialize chrome_options """
     # selenium.webdriver source code: from .chrome.options import Options as ChromeOptions
     chrome_options = webdriver.ChromeOptions()
 
@@ -66,16 +66,16 @@ class GsvAuto:
     def __init__(self):
         """ Initialize """
         # self.driver = webdriver.Chrome(executable_path='./chromedriver',
-        #                                options=SeleniumInit.chrome_options)
+        #                                options=ChromeOptionsInit.chrome_options)
         # DeprecationWarning: executable_path has been deprecated, please pass in a Service object
+        # In Selenium 4, you’ll need to set the driver’s executable_path from a Service object.
 
         # service = Service('./chromedriver')
-        # https://www.selenium.dev/documentation/webdriver/getting_started/install_drivers/#1-driver-management-software
-        # Use install() to get the location used by the manager
-        # and pass it into service class
+        # Most machines automatically update the browser, but the driver does not.
+        # Use "webdriver-manager" to make sure you get the correct driver for your browser.
         service = Service(executable_path=ChromeDriverManager().install())
         self.driver = webdriver.Chrome(service=service,
-                                       options=SeleniumInit.chrome_options)
+                                       options=ChromeOptionsInit.chrome_options)
 
         self.doorfront_local_url = 'http://localhost:3000/'
         self.doorfront_production_url = 'https://doorfront.org/'
@@ -84,16 +84,31 @@ class GsvAuto:
         print('Opening the website...')
         try:
             self.driver.get(self.doorfront_local_url)
-            time.sleep(10)
+            time.sleep(8)  # TODO wait for loading all elements
         except TimeoutException:
             print('Time Out!')
 
     def click_to_go_forward(self):
-        # self.driver.find_element(By.XPATH,
-        #                          '//*[@id="StreetView"]/svg/path[1]').click()
-        # Selenium can access DOM, but not elements in the Canvas.
-        pass
+        # //*[@id="StreetView"]/div/div[1]/div/div[10]/div/canvas
+        # #StreetView > div > div:nth-child(1) > div > div:nth-child(10) > div > canvas
+        # <canvas width="1280" height="1280" id=""
+        # class="mapsConsumerUiSceneInternalCoreScene__canvas widget-scene-canvas"
+        # style="width: 640px; height: 640px;"></canvas>
+        # res = self.driver.find_element(By.ID, "StreetView").rect
+        # print(res)  # {'height': 640, 'width': 640, 'x': 24, 'y': 153.59375}
+        
+        # mouse_tracker = self.driver.find_element(By.ID, "StreetView")
+        # webdriver.ActionChains(self.driver)\
+        #     .move_to_element_with_offset(mouse_tracker, 662, 791)\
+        #     .click()\
+        #     .perform()
+        # time.sleep(2)
 
+        draggable = self.driver.find_element(By.ID, "StreetView")
+        droppable = self.driver.find_element(By.ID, "MapContainer")
+        webdriver.ActionChains(self.driver)\
+            .drag_and_drop(draggable, droppable)\
+            .perform()
 
 if __name__ == "__main__":
     try:

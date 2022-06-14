@@ -1,6 +1,6 @@
 # doorfront-automation
 
-Automatically walk in Google Street View on the website ([DoorFront](https://doorfront.org/)) using **Selenium** and **ChromeDriver**.
+Automatically walk in Google Street View on the website ([DoorFront](https://doorfront.org/)) using **Selenium 4.2** and **ChromeDriver**.
 
 
 ## How to run?
