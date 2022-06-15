@@ -84,7 +84,7 @@ class GsvAuto:
         print('Opening the website...')
         try:
             self.driver.get(self.doorfront_local_url)
-            time.sleep(8)  # TODO wait for loading all elements
+            time.sleep(8)  # TODO use WebDriverWait
         except TimeoutException:
             print('Time Out!')
 

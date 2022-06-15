@@ -1,5 +1,7 @@
 """
-Demo code from: https://chromedriver.chromium.org/getting-started
+Demo code from:
+- https://chromedriver.chromium.org/getting-started
+- https://www.selenium.dev/documentation/webdriver/getting_started/
 """
 
 # import time
