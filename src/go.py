@@ -5,7 +5,7 @@ and take screenshots using PyAutoGUI.
 You need to change the values below the TODO comment.
 Because the default values are tested on an Apple iMac,
 you must change the defaults for the program to run correctly
-on you computer.
+on your computer.
 
 Comments start with # or three double-quotes.
 """
@@ -18,12 +18,12 @@ import pyautogui
 The screenshot will be saved to the images folder. """
 gsv_img = pyautogui.screenshot(
     imageFilename = 'images/1gsv.png',
-    # TODO: Replace the top-left and bottom-right coordinates
+    # TODO: Replace the top-left coordinates and the size
     # of the google street view (GSV) on your computer.
     # Argument1: GSV top-left x-coordinate
     # Argument2: GSV top-left y-coordinate
-    # Argument3: GSV bottom-right x-coordinate
-    # Argument4: GSV bottom-right y-coordinate
+    # Argument3: GSV width, typically 640 on Windows
+    # Argument4: GSV heigh, typically 640 on Windows
     region=(48, 579, 1280, 1280)
 )
 print("Taking the #1 screenshot...")
@@ -33,14 +33,9 @@ print("Taking the #1 screenshot...")
 takes roughly 100 milliseconds """
 time.sleep(0.3)
 
-# TODO: Replace the x-coordinate and y-coordinate
-# of the forward arrow on google street view (GSV).
-# Argument1: GSV forward arrow x-coordinate
-# Argument2: GSV forward arrow y-coordinate
-pyautogui.moveTo(403, 855)
 
-
-""" Click the forward arrow to forward! """
+""" Click the forward arrow to forward!
+Before it, you need to put your mouse cursor on the forward arrow."""
 pyautogui.click()
 pyautogui.click()
 """ Waiting for google street view to render. """
@@ -57,13 +52,13 @@ for i in range(3):
     """ Here's a for-loop that loops over what we did above! """
     gsv_img = pyautogui.screenshot(
         imageFilename = 'images/' + str(i + 2) + 'gsv.png',
-        # TODO: Replace the top-left and bottom-right coordinates
+        # TODO: Replace the top-left coordinates and the size
         # of the google street view (GSV) on your computer.
         # Argument1: GSV top-left x-coordinate
         # Argument2: GSV top-left y-coordinate
-        # Argument3: GSV bottom-right x-coordinate
-        # Argument4: GSV bottom-right y-coordinate
-        # The 4 parameters are the same as in line 23 above.
+        # Argument3: GSV width, typically 640 on Windows
+        # Argument4: GSV heigh, typically 640 on Windows
+        # The 4 parameters are the same as the "region" above.
         region=(48, 579, 1280, 1280)
     )
 
