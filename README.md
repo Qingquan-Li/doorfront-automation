@@ -25,10 +25,29 @@ How to install: https://www.python.org/downloads/
 
 ## 3. Install the required libraries
 
-Install [PyAutoGUI](https://pyautogui.readthedocs.io/en/latest/index.html), enter the following command in the terminal:
+3.1 Install [PyAutoGUI](https://pyautogui.readthedocs.io/en/latest/index.html), enter the following command in the terminal:
 
 ```bash
 pip install pyautogui
+```
+
+If you cannot run the command above on Windows, please try the commands below:
+
+```bash
+# Rollback pip to an older version:
+python -m pip install pip==18.1
+
+# Install desired module:
+pip install pyautogui
+
+# Update pip:
+python -m pip install --upgrade pip
+```
+
+3.2 Install Pillow, enter the following command in the terminal:
+
+```bash
+pip install Pillow
 ```
 
 
